@@ -16,7 +16,7 @@ return new class extends Migration
             $table->decimal('health_status');
             $table->integer('physical_fitness');
             $table->integer('resource_consumption');
-            $table->decimal('action_decision');
+            $table->string('action_decision');
             $table->timestamps();
             
         });
