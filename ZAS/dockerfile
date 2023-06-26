@@ -1,0 +1,8 @@
+FROM php:8.1-apache
+COPY myapp.conf /etc/apache2/sites-available/000-default.conf
+COPY  . /var/www/html/myapp
+WORKDIR /var/www/html/myapp
+RUN apt-get update && \
+    apt-get install -y libpq-dev
+RUN docker-php-ext-install pdo pdo_pgsql 
+EXPOSE 80
