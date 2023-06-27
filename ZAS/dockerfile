@@ -3,6 +3,7 @@ COPY myapp.conf /etc/apache2/sites-available/000-default.conf
 COPY  . /var/www/html/myapp
 WORKDIR /var/www/html/myapp
 RUN apt-get update && \
-    apt-get install -y libpq-dev
+    apt-get install -y libpq-dev && \
+    a2enmod rewrite
 RUN docker-php-ext-install pdo pdo_pgsql 
 EXPOSE 80

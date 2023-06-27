@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('food');
+            $table->integer('water');
+            $table->integer('medical_supplies');
+            $table->integer('weapon');
             $table->timestamps();
         });
     }
