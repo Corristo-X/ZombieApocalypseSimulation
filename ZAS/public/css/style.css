@@ -1,0 +1,11 @@
+input[type="number"] {
+    position: absolute;
+    left: 160px;
+}
+
+button[type="submit"] {
+    width: 150px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+}
