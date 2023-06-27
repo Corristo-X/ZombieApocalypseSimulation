@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HumanController;
+use App\Http\Controllers\ResourceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/',[HumanController::class,'index_avg']);
+Route::get('/humans',[HumanController::class,'index']);
+
+Route::post('/reset-database',[HumanController::class,'reset'])->name('resetDatabase');
+Route::post('/add-human',[HumanController::class,'addHuman'])->name('addHuman');
+Route::post('/delete-human',[HumanController::class,'deleteHuman'])->name('deleteHuman');
+Route::post('/add-zombie',[HumanController::class,'addZombie'])->name('addZombie');
+Route::post('/delete-zombie',[HumanController::class,'deleteZombie'])->name('deleteZombie');
+Route::post('/update-resources',[HumanController::class,'updateResources'])->name('updateResources');
+
