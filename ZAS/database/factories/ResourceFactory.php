@@ -17,10 +17,10 @@ class ResourceFactory extends Factory
     public function definition(): array
     {
         return[
-            'food'=>$this->faker->numberBetween(0,25),
-            'water'=>$this->faker->numberBetween(0,25),
-            'medical_supplies'=>$this->faker->numberBetween(0,25),
-            'weapon'=>$this->faker->numberBetween(0,25),
+            'food'=>$this->faker->numberBetween(0,25),//adds a random value from 0-25
+            'water'=>$this->faker->numberBetween(0,25),//adds a random value from 0-25
+            'medical_supplies'=>$this->faker->numberBetween(0,25),//adds a random value from 0-25
+            'weapon'=>$this->faker->numberBetween(0,25),//adds a random value from 0-25
         ];
     }
 }

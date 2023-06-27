@@ -4,38 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-
-
-    <!-- Styles -->
-    <style>
-        input[type="number"] {
-            position: absolute;
-            left: 160px;
-        }
-
-        button[type="submit"] {
-            width: 150px;
-            border-radius: 4px;
-            cursor: pointer;
-            padding: 10px;
-        }
-    </style>
-
+    <title>Zombie Apocalypse Simulation</title>
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
 
 <body class="antialiased">
     <h1>Zombie Apocalypse Simulation</h1>
     @php
-    $averageHealthStatus = $humans->avg('health_status');
-    $averagePhysicalFitness = $humans->avg('physical_fitness');
-    $averageResourceConsumption = $humans->avg('resource_consumption');
-
-    $actionDecisionCounts = $humans->countBy('action_decision');
-    $mostCommonAction = collect($actionDecisionCounts)->sortDesc()->keys()->first();
+    //assigning data to variables
+    $averageHealthStatus = $humans->avg('health_status'); //average human health
+    $averagePhysicalFitness = $humans->avg('physical_fitness'); //average physical fitness
+    $averageResourceConsumption = $humans->avg('resource_consumption'); // average resource consumption
+    $actionDecisionCounts = $humans->countBy('action_decision'); //grouping a collection element and returning the number of occurrences of each group
+    $mostCommonAction = collect($actionDecisionCounts)->sortDesc()->keys()->first();//sorting the collection in descending order and selecting the first element
     $food = $resources->first()['food'];
     $water = $resources->first()['water'];
     $medical_supplies = $resources->first()['medical_supplies'];
@@ -44,7 +25,7 @@
     $human_capabilities = $humans_count*$averageHealthStatus*$averagePhysicalFitness/$averageResourceConsumption;
     $human_resources_escape = 0.8*$food+0.8*$water+0.4*$medical_supplies+0.4*$weapon;
     $human_resources_fight = 0.4*$food+0.4*$water+0.8*$medical_supplies+0.8*$weapon;
-
+    //if the action chosen by the people is escape then the result is calculated with human_resources_escape and if the action is fight then with human_resources_fight
     @endphp
 
     <p>Average Health: {{ $averageHealthStatus }}</p>
@@ -57,7 +38,7 @@
     <p>Amount of water : {{$water}}</p>
     <p>Quantity of medical supplies : {{$medical_supplies}}</p>
     <p>Quantity of weapons : {{$weapon}}</p>
-
+    
     @if($mostCommonAction=='escape')
     @php
     $wynik = ($human_capabilities*$human_resources_escape)-($zombies*10)

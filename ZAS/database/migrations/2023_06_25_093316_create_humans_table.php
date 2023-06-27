@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('humans', function (Blueprint $table) {
-            $table->id();
+        Schema::create('humans', function (Blueprint $table) { //creation of humans table
+            $table->id(); 
             $table->decimal('health_status');
             $table->integer('physical_fitness');
             $table->integer('resource_consumption');

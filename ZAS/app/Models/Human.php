@@ -9,6 +9,5 @@ use Illuminate\Notifications\Notifiable;
 class Human extends Model
 {
     use HasFactory;
-    //protected $fillable = ['health_status','physical_fitness','resource_consumption','action_decision'];
 
 }
